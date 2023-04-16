@@ -1,0 +1,17 @@
+C:\Users\nator\Desktop\MKW WSZS GUI\MKW WSZS GUI\bin\Debug\net6.0-windows\MKW WSZS GUI.exe
+C:\Users\nator\Desktop\MKW WSZS GUI\MKW WSZS GUI\bin\Debug\net6.0-windows\MKW WSZS GUI.deps.json
+C:\Users\nator\Desktop\MKW WSZS GUI\MKW WSZS GUI\bin\Debug\net6.0-windows\MKW WSZS GUI.runtimeconfig.json
+C:\Users\nator\Desktop\MKW WSZS GUI\MKW WSZS GUI\bin\Debug\net6.0-windows\MKW WSZS GUI.dll
+C:\Users\nator\Desktop\MKW WSZS GUI\MKW WSZS GUI\bin\Debug\net6.0-windows\MKW WSZS GUI.pdb
+C:\Users\nator\Desktop\MKW WSZS GUI\MKW WSZS GUI\obj\Debug\net6.0-windows\MKW WSZS GUI.csproj.AssemblyReference.cache
+C:\Users\nator\Desktop\MKW WSZS GUI\MKW WSZS GUI\obj\Debug\net6.0-windows\MKW_WSZS_GUI.Form1.resources
+C:\Users\nator\Desktop\MKW WSZS GUI\MKW WSZS GUI\obj\Debug\net6.0-windows\MKW WSZS GUI.csproj.GenerateResource.cache
+C:\Users\nator\Desktop\MKW WSZS GUI\MKW WSZS GUI\obj\Debug\net6.0-windows\MKW WSZS GUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nator\Desktop\MKW WSZS GUI\MKW WSZS GUI\obj\Debug\net6.0-windows\MKW WSZS GUI.AssemblyInfoInputs.cache
+C:\Users\nator\Desktop\MKW WSZS GUI\MKW WSZS GUI\obj\Debug\net6.0-windows\MKW WSZS GUI.AssemblyInfo.cs
+C:\Users\nator\Desktop\MKW WSZS GUI\MKW WSZS GUI\obj\Debug\net6.0-windows\MKW WSZS GUI.csproj.CoreCompileInputs.cache
+C:\Users\nator\Desktop\MKW WSZS GUI\MKW WSZS GUI\obj\Debug\net6.0-windows\MKW WSZS GUI.dll
+C:\Users\nator\Desktop\MKW WSZS GUI\MKW WSZS GUI\obj\Debug\net6.0-windows\refint\MKW WSZS GUI.dll
+C:\Users\nator\Desktop\MKW WSZS GUI\MKW WSZS GUI\obj\Debug\net6.0-windows\MKW WSZS GUI.pdb
+C:\Users\nator\Desktop\MKW WSZS GUI\MKW WSZS GUI\obj\Debug\net6.0-windows\MKW WSZS GUI.genruntimeconfig.cache
+C:\Users\nator\Desktop\MKW WSZS GUI\MKW WSZS GUI\obj\Debug\net6.0-windows\ref\MKW WSZS GUI.dll

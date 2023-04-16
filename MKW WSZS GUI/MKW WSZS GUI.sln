@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MKW WSZS GUI", "MKW WSZS GUI\MKW WSZS GUI.csproj", "{4F5142C8-F1B9-4FC0-B82D-9799FDAF984A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F5142C8-F1B9-4FC0-B82D-9799FDAF984A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F5142C8-F1B9-4FC0-B82D-9799FDAF984A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F5142C8-F1B9-4FC0-B82D-9799FDAF984A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F5142C8-F1B9-4FC0-B82D-9799FDAF984A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF43B851-F3E8-4BC6-8D03-8C586F0D57E8}
+	EndGlobalSection
+EndGlobal
