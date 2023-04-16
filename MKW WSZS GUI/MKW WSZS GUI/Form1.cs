@@ -165,7 +165,7 @@ namespace MKW_WSZS_GUI
                     // コマンドプロンプトでWSZSTを実行してファイルを解凍する
                     var processStartInfo = new ProcessStartInfo();
                     processStartInfo.FileName = "cmd.exe";
-                    processStartInfo.Arguments = $"/c wszst x \"{filePath}\"";
+                    processStartInfo.Arguments = $"/c wszst x " + filePath; ;
                     processStartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     processStartInfo.UseShellExecute = false;
                     processStartInfo.RedirectStandardOutput = true;
