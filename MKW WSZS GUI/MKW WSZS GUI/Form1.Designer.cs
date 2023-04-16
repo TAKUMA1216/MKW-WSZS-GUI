@@ -36,7 +36,7 @@
             this.packBtn = new System.Windows.Forms.Button();
             this.unpackBtn = new System.Windows.Forms.Button();
             this.version = new System.Windows.Forms.Label();
-            this.updateBtn = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +63,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(324, 171);
+            this.groupBox1.Size = new System.Drawing.Size(356, 179);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Track Create";
@@ -71,16 +71,16 @@
             // folderPath
             // 
             this.folderPath.Enabled = false;
-            this.folderPath.Location = new System.Drawing.Point(81, 146);
+            this.folderPath.Location = new System.Drawing.Point(94, 146);
             this.folderPath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.folderPath.Name = "folderPath";
-            this.folderPath.Size = new System.Drawing.Size(236, 23);
+            this.folderPath.Size = new System.Drawing.Size(256, 23);
             this.folderPath.TabIndex = 5;
             this.folderPath.TextChanged += new System.EventHandler(this.folderPath_TextChanged);
             // 
             // folderBtn
             // 
-            this.folderBtn.Location = new System.Drawing.Point(5, 144);
+            this.folderBtn.Location = new System.Drawing.Point(17, 146);
             this.folderBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.folderBtn.Name = "folderBtn";
             this.folderBtn.Size = new System.Drawing.Size(71, 22);
@@ -91,7 +91,7 @@
             // 
             // pachBtn
             // 
-            this.pachBtn.Location = new System.Drawing.Point(5, 82);
+            this.pachBtn.Location = new System.Drawing.Point(15, 82);
             this.pachBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pachBtn.Name = "pachBtn";
             this.pachBtn.Size = new System.Drawing.Size(153, 58);
@@ -102,7 +102,7 @@
             // 
             // packBtn
             // 
-            this.packBtn.Location = new System.Drawing.Point(164, 20);
+            this.packBtn.Location = new System.Drawing.Point(197, 20);
             this.packBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.packBtn.Name = "packBtn";
             this.packBtn.Size = new System.Drawing.Size(153, 58);
@@ -113,7 +113,7 @@
             // 
             // unpackBtn
             // 
-            this.unpackBtn.Location = new System.Drawing.Point(5, 20);
+            this.unpackBtn.Location = new System.Drawing.Point(15, 20);
             this.unpackBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.unpackBtn.Name = "unpackBtn";
             this.unpackBtn.Size = new System.Drawing.Size(153, 58);
@@ -131,27 +131,29 @@
             this.version.TabIndex = 2;
             this.version.Text = "Version:1.0.0 Takuma Blender Studio";
             // 
-            // updateBtn
+            // linkLabel1
             // 
-            this.updateBtn.Location = new System.Drawing.Point(259, 9);
-            this.updateBtn.Name = "updateBtn";
-            this.updateBtn.Size = new System.Drawing.Size(75, 23);
-            this.updateBtn.TabIndex = 3;
-            this.updateBtn.Text = "UPDATES";
-            this.updateBtn.UseVisualStyleBackColor = true;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(10, 305);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(323, 15);
+            this.linkLabel1.TabIndex = 3;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "https://github.com/TAKUMA1216/MKW-WSZS-GUI/releases";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(346, 344);
-            this.Controls.Add(this.updateBtn);
+            this.ClientSize = new System.Drawing.Size(378, 344);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.version);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.newBtn);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximumSize = new System.Drawing.Size(362, 383);
-            this.MinimumSize = new System.Drawing.Size(362, 383);
+            this.MaximumSize = new System.Drawing.Size(394, 383);
+            this.MinimumSize = new System.Drawing.Size(394, 383);
             this.Name = "Form1";
             this.Text = "MKW WSZS GUI";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -172,6 +174,6 @@
         private Button packBtn;
         private Button unpackBtn;
         private Label version;
-        private Button updateBtn;
+        private LinkLabel linkLabel1;
     }
 }

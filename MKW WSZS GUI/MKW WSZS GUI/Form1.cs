@@ -7,6 +7,13 @@ using System.Windows.Forms;
 using System.Security.Permissions;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+
 namespace MKW_WSZS_GUI
 {
     public partial class Form1 : Form
@@ -250,6 +257,18 @@ namespace MKW_WSZS_GUI
                     MessageBox.Show("Failed minimap patching!");
                 }
             }
+        }
+
+        private void linkLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string linkText = linkLabel1.Text; // linkLabelの文字列を取得する
+            Clipboard.SetText(linkText); // クリップボードにコピーする
+            MessageBox.Show("Link Copied on clipboard!", "Copied");
         }
     }
 }
