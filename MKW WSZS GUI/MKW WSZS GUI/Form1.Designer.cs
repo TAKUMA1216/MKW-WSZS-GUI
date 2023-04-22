@@ -30,6 +30,7 @@
         {
             this.newBtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.moveBtn = new System.Windows.Forms.Button();
             this.folderPath = new System.Windows.Forms.TextBox();
             this.folderBtn = new System.Windows.Forms.Button();
             this.pachBtn = new System.Windows.Forms.Button();
@@ -37,13 +38,15 @@
             this.unpackBtn = new System.Windows.Forms.Button();
             this.version = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.dlBar = new System.Windows.Forms.ProgressBar();
+            this.dlStatus = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // newBtn
             // 
             this.newBtn.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.newBtn.Location = new System.Drawing.Point(11, 12);
+            this.newBtn.Location = new System.Drawing.Point(28, 12);
             this.newBtn.Name = "newBtn";
             this.newBtn.Size = new System.Drawing.Size(175, 77);
             this.newBtn.TabIndex = 0;
@@ -53,6 +56,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.moveBtn);
             this.groupBox1.Controls.Add(this.folderPath);
             this.groupBox1.Controls.Add(this.folderBtn);
             this.groupBox1.Controls.Add(this.pachBtn);
@@ -64,6 +68,16 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Track Create";
+            // 
+            // moveBtn
+            // 
+            this.moveBtn.Location = new System.Drawing.Point(211, 109);
+            this.moveBtn.Name = "moveBtn";
+            this.moveBtn.Size = new System.Drawing.Size(175, 76);
+            this.moveBtn.TabIndex = 4;
+            this.moveBtn.Text = "FILE MOVE";
+            this.moveBtn.UseVisualStyleBackColor = true;
+            this.moveBtn.Click += new System.EventHandler(this.moveBtn_Click);
             // 
             // folderPath
             // 
@@ -90,13 +104,13 @@
             this.pachBtn.Name = "pachBtn";
             this.pachBtn.Size = new System.Drawing.Size(175, 77);
             this.pachBtn.TabIndex = 4;
-            this.pachBtn.Text = "AUTO PACH MINIMAP";
+            this.pachBtn.Text = "AUTO PATCH MINIMAP";
             this.pachBtn.UseVisualStyleBackColor = true;
             this.pachBtn.Click += new System.EventHandler(this.pachBtn_Click);
             // 
             // packBtn
             // 
-            this.packBtn.Location = new System.Drawing.Point(225, 27);
+            this.packBtn.Location = new System.Drawing.Point(211, 26);
             this.packBtn.Name = "packBtn";
             this.packBtn.Size = new System.Drawing.Size(175, 77);
             this.packBtn.TabIndex = 3;
@@ -121,7 +135,7 @@
             this.version.Name = "version";
             this.version.Size = new System.Drawing.Size(246, 20);
             this.version.TabIndex = 2;
-            this.version.Text = "Version:1.0.1 Takuma Blender Studio";
+            this.version.Text = "Version:1.5.1 Takuma Blender Studio";
             // 
             // linkLabel1
             // 
@@ -134,11 +148,28 @@
             this.linkLabel1.Text = "https://github.com/TAKUMA1216/MKW-WSZS-GUI/releases";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // dlBar
+            // 
+            this.dlBar.Location = new System.Drawing.Point(12, 350);
+            this.dlBar.Name = "dlBar";
+            this.dlBar.Size = new System.Drawing.Size(406, 29);
+            this.dlBar.TabIndex = 4;
+            // 
+            // dlStatus
+            // 
+            this.dlStatus.AutoSize = true;
+            this.dlStatus.Location = new System.Drawing.Point(12, 382);
+            this.dlStatus.Name = "dlStatus";
+            this.dlStatus.Size = new System.Drawing.Size(0, 20);
+            this.dlStatus.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(430, 448);
+            this.Controls.Add(this.dlStatus);
+            this.Controls.Add(this.dlBar);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.version);
             this.Controls.Add(this.groupBox1);
@@ -166,5 +197,8 @@
         private Button unpackBtn;
         private Label version;
         private LinkLabel linkLabel1;
+        private Button moveBtn;
+        private ProgressBar dlBar;
+        private Label dlStatus;
     }
 }

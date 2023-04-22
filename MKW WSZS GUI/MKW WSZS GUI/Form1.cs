@@ -69,22 +69,26 @@ namespace MKW_WSZS_GUI
             }
         }
 
-        private void newBtn_Click(object sender, EventArgs e)
+        private async void newBtn_Click(object sender, EventArgs e)
         {
-            // Google DriveのファイルID
+            dlBar.Value = 0;
+            dlStatus.Text = "Download Status:";
             string fileId = "1W0RKrcfFYowTjZUgtf_C_IZftfpeDVPJ";
-
-            // ファイルダウンロード用のURLを生成する
-            string downloadUrl = $"https://drive.google.com/u/0/uc?id=1W0RKrcfFYowTjZUgtf_C_IZftfpeDVPJ&export=download";
+            string downloadUrl = $"https://drive.google.com/u/0/uc?id={fileId}&export=download";
+            string tempZipPath = Path.Combine(Path.GetTempPath(), "NEW TRACK.zip");
 
             // ファイルのダウンロードと解凍
             using (WebClient client = new WebClient())
             {
-                // ダウンロード先の一時ファイル名を指定する
-                string tempZipPath = Path.Combine(Path.GetTempPath(), "NEW TRACK.zip");
+                client.DownloadProgressChanged += (s, ev) =>
+                {
+                    dlBar.Text = $"downloading...{ev.ProgressPercentage}%";
+                };
 
-                // ファイルをダウンロードする
-                client.DownloadFile(downloadUrl, tempZipPath);
+                await client.DownloadFileTaskAsync(new Uri(downloadUrl), tempZipPath);
+
+                dlBar.Value = 100;
+                dlStatus.Text = "Download Success!";
 
 
 
@@ -137,6 +141,8 @@ namespace MKW_WSZS_GUI
 
         private void folderBtn_Click(object sender, EventArgs e)
         {
+            string message = "Chose your folder of course. \n For Example... : *_course.d";
+            MessageBox.Show(message, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             using (var dialog = new FolderBrowserDialog())
             {
                 // ダイアログの説明を設定します
@@ -204,6 +210,7 @@ namespace MKW_WSZS_GUI
 
         private void packBtn_Click(object sender, EventArgs e)
         {
+            
             string folderPath_s = folderPath.Text;
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.FileName = "cmd.exe";
@@ -231,24 +238,24 @@ namespace MKW_WSZS_GUI
         {
 
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "brres file (*.brres)|*.brres";
-            openFileDialog1.Title = "Chose your brres file";
+            openFileDialog1.Filter = "packed .szs file (*.szs)|*.szs";
+            openFileDialog1.Title = "Chose your szs file";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 string brresPath = openFileDialog1.FileName;
-                ProcessStartInfo startInfo = new ProcessStartInfo();
-                startInfo.FileName = "cmd.exe";
-                startInfo.RedirectStandardInput = true;
-                startInfo.RedirectStandardOutput = true;
-                startInfo.UseShellExecute = false;
-                Process process = new Process();
-                process.StartInfo = startInfo;
-                process.Start();
-                process.StandardInput.WriteLine("wszst minimap \"" + brresPath + "\" --auto");
-                process.StandardInput.Flush();
-                process.StandardInput.Close();
-                string output = process.StandardOutput.ReadToEnd();
-                if (output.Contains("left-down"))
+                ProcessStartInfo startInfo2 = new ProcessStartInfo();
+                startInfo2.FileName = "cmd.exe";
+                startInfo2.RedirectStandardInput = true;
+                startInfo2.RedirectStandardOutput = true;
+                startInfo2.UseShellExecute = false;
+                Process process2 = new Process();
+                process2.StartInfo = startInfo2;
+                process2.Start();
+                process2.StandardInput.WriteLine("wszst minimap " + brresPath + " --auto");
+                process2.StandardInput.Flush();
+                process2.StandardInput.Close();
+                string output = process2.StandardOutput.ReadToEnd();
+                if (output.Contains("YAZ0"))
                 {
                     MessageBox.Show("Patch success minimap!");
                 }
@@ -264,12 +271,80 @@ namespace MKW_WSZS_GUI
 
         }
 
+
+        /// <summary>
+        /// URLを既定のブラウザで開く
+        /// </summary>
+        /// <param name="url">https://github.com/TAKUMA1216/MKW-WSZS-GUI/releases</param>
+        /// <returns>Process</returns>
+        private Process OpenUrl(string url)
+        {
+            ProcessStartInfo pi = new ProcessStartInfo()
+            {
+                FileName = url,
+                UseShellExecute = true,
+            };
+
+            return Process.Start(pi);
+        }
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string linkText = linkLabel1.Text; // linkLabelの文字列を取得する
-            Clipboard.SetText(linkText); // クリップボードにコピーする
-            MessageBox.Show("Link Copied on clipboard!", "Copied");
+
+            string url = "https://github.com/TAKUMA1216/MKW-WSZS-GUI/releases";
+            OpenUrl(url);
         }
+
+        private void moveBtn_Click(object sender, EventArgs e)
+        {
+            // ファイル選択ダイアログを表示し、移動元のファイルを選択する
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "szs files (*.szs)|*.szs";
+            openFileDialog.Title = "Select a szs file to move";
+
+            if (openFileDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            string sourceFilePath = openFileDialog.FileName;
+
+            // 移動先のフォルダーを選択する
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            folderBrowserDialog.Description = "Select a folder to move the file to";
+
+            if (folderBrowserDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            string destinationFolderPath = folderBrowserDialog.SelectedPath;
+
+            // 移動先のパスを作成する
+            string destinationFilePath = Path.Combine(destinationFolderPath, Path.GetFileName(sourceFilePath));
+
+            // 移動先に同名のファイルがある場合に上書きするか確認する
+            if (File.Exists(destinationFilePath))
+            {
+                DialogResult result = MessageBox.Show("File already exists. Do you want to overwrite it?", "Confirm Overwrite", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+            }
+
+            // ファイルを移動する
+            try
+            {
+                File.Move(sourceFilePath, destinationFilePath);
+                MessageBox.Show("File moved successfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error moving file: " + ex.Message);
+            }
+        
+    }
     }
 }
    
